@@ -1,0 +1,61 @@
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .menu{
+    padding-top: 20px;
+    width: 60%;
+    height: inherit;
+    table{
+      width: 100%;
+      height: inherit;
+      tr{
+        width: inherit;
+        display: flex;
+        align-items: center;
+       *{
+         width: 100%;
+         text-align: center;
+       }
+       th{
+         margin-left: 80px;
+       }
+       td{
+         margin-left: 40px;
+          width: 100%;
+       }
+        span{
+          display: inline-flex;
+        }
+        .add-to-order{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          button{
+            width: 60%;
+          }
+        }
+  
+      }
+    }
+    
+  }
+  .order{
+    width: 25%;
+    
+  }
+}
+@media (max-width:800px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    .menu{
+      width: 100%;
+      height: 60%;
+    }
+    .order{
+      width: 100%;
+    }
+  }
+}

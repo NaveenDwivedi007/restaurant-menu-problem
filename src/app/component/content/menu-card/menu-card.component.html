@@ -1,0 +1,35 @@
+
+
+<app-header></app-header>
+<div class="container">
+  <div class="menu">
+    <table >
+      <tr>
+        <th>Dish Name</th>
+        <th>Price</th>
+        <th class="Quantity" >Quantity</th>
+        <th >Order</th>
+      </tr>
+    <br>
+      <tr *ngFor="let menu of menuCard">
+        <td>{{menu.dishName}}</td>
+        <td> Rs: {{menu.price}}/-</td>
+        <span>
+          <button mat-button color="primary" (click)="decrement(menu.id)"><mat-icon class="btn reduce">remove</mat-icon></button>
+          <h6>{{menu.quantity}}</h6>
+          <button mat-button (click)="increment(menu.id)" ><mat-icon class="btn add">add</mat-icon></button>
+        </span>
+        <div class="add-to-order">
+        <button mat-raised-button color="primary" (click)="addOrder(menu)" >Add to order</button>
+      </div>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="order">
+  <app-orders></app-orders>
+  
+  </div>
+</div>
+<app-footer></app-footer>
