@@ -12,7 +12,7 @@ export interface order{id:Number,
   styleUrls: ['./menu-card.component.scss']
 })
 export class MenuCardComponent implements OnInit {
-
+  billBtn:Boolean = true
   orders:order[]=[]
 
   menuCard= [
@@ -37,10 +37,23 @@ export class MenuCardComponent implements OnInit {
   }
   
 
-  increment(n:Number){ 
+ 
+  addOrder(obj:order){
+  let orderObj:order = {...obj}
+    if (this.orders.findIndex(x=>x.id===obj.id) !== -1) {
+     return this.orders[this.orders.findIndex(x=>x.id===obj.id)].quantity= orderObj.quantity
+      
+    }else{     
+      return this.orders.push(orderObj)
+    }
+  }
+
+   increment(n:Number){ 
     
     if (this.menuCard[this.menuCard.findIndex(x=>x.id === n)].quantity>9) {
-      return this.snackBar.open("you have reach max order capacity");
+      return this.snackBar.open("you have reach max order capacity","",{
+        duration: 500
+      });
     }else{ 
     return this.menuCard[this.menuCard.findIndex(x=>x.id === n)].quantity++
     }
@@ -48,18 +61,17 @@ export class MenuCardComponent implements OnInit {
   
   decrement(n:Number){    
     if (this.menuCard[this.menuCard.findIndex(x=>x.id === n)].quantity<2) {
-      return this.snackBar.open("Quantity can not 0")
+      return this.snackBar.open("Quantity can not 0","",{
+        duration: 500
+      })
     }else{ 
     return this.menuCard[this.menuCard.findIndex(x=>x.id === n)].quantity--
     }
   }
 
-  addOrder(obj:order){
-    
-    this.orders.push(obj)
-    return console.log(this.orders.filter(x=>x.id===obj.id));
-    
+  removeOrder(id:Number){
+    console.log(this.orders.findIndex(x=>x.id===id));
+   return   this.orders.splice(this.orders.findIndex(x=>x.id===id),1)
   }
-
 
 }

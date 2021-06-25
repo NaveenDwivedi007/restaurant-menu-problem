@@ -2,10 +2,11 @@
   height: 100%;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   .menu{
     padding-top: 20px;
-    width: 60%;
+    padding-right: 1.5rem;
+    flex:5;
     height: inherit;
     table{
       width: 100%;
@@ -26,7 +27,15 @@
           width: 100%;
        }
         span{
+          width:100%;
           display: inline-flex;
+          justify-content: center;
+          h6{
+            width: 15px;
+          }
+          button{
+            width: 40px;
+          }
         }
         .add-to-order{
           width: 100%;
@@ -42,7 +51,37 @@
     
   }
   .order{
-    width: 25%;
+    flex:2;
+    height: inherit;
+    background-color: #162;
+    .btn{
+      display:flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    table{
+      background-color: rgb(226, 132, 8);
+      width: 100%;
+      
+      
+      tr{
+        width: 100%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        background-color: #fff;
+        td{
+          background-color: #154715;
+          text-align: center;
+        }
+        th{
+          background-color: #457842;
+        }
+       
+        
+      }
+      
+    }
     
   }
 }
