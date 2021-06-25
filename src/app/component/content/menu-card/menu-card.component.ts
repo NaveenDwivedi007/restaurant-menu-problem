@@ -45,10 +45,10 @@ export class MenuCardComponent implements OnInit {
     let orderObj:order = {...obj}
     if (this.orders.findIndex(x=>x.id===obj.id) !== -1) {
      return this.orders[this.orders.findIndex(x=>x.id===obj.id)].quantity= orderObj.quantity
-      
     }else{     
       return this.orders.push(orderObj)
     }
+
   }
 
    increment(n:number){ 
@@ -91,15 +91,16 @@ show(){
     let ord:order = {...x}
       this.billArray.push(ord)
   })
-  this.orders=[]
-  console.log(this.billArray);
-  
-  
-  return this.snackBar.open("Thank you for your order Enjoy your Food","",{
-    duration:1500
-  })
-  
-  
+  if (this.orders.length===0) {
+    return this.snackBar.open("Please order something from menu","",{
+      duration:1500
+    })
+  }else{
+    this.snackBar.open("Thank you for your order Enjoy your Food","",{
+      duration:1500
+    })
+  }
+  return  this.orders=[]
 }
 
 }

@@ -1,1 +1,33 @@
-<p> Order is working</p>
+<div class="container">
+  <table >
+    <tr>
+      <th>Dish Name</th>
+      <th>Quantity</th>
+      <th >Net Price</th>
+    </tr>
+  <br>
+    <tr *ngFor="let bill of billarray">
+      <td>{{bill.dishName}}</td>
+      <td> {{bill.quantity}}</td>
+      <td> Rs: {{bill.price}}/-</td>
+    </tr>
+  </table>
+  <div class="total">
+    <h3>Amount</h3>
+    <h3>Rs: {{tatolAmount}} /-</h3>
+  </div>
+  <div class="tipping">
+    <div class="tip">
+      <mat-form-field>
+        <mat-label>Tip</mat-label>
+        <input matInput  
+        [(ngModel)]="tip">
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="makeAPayment()" >pay</button>
+  </div>
+  <div class="payment">
+    <h1>Net Amount</h1>
+  <h1>Rs: {{amountAfterTip}}/-</h1>
+</div>
+</div>

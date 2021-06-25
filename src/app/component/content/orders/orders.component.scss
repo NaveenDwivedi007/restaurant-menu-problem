@@ -1,20 +1,41 @@
+
+// .container{
+//   padding-top: 10px;
+// }
+
+mat-label{
+  color: black;
+}
+
 table{
-  background-color: rgb(226, 132, 8);
   width: 100%;
   tr{
     width: 100%;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    background-color: #fff;
     td{
-      background-color: #154715;
       text-align: center;
     }
-    th{
-      background-color: #457842;
-    }
-    
   }
   
+}
+.total{
+  display: flex;
+  border-top: dotted 2px black;
+  border-bottom: dotted 2px black;
+  line-height: .5;
+  align-items: center;
+  justify-content: space-around;
+}
+.tipping{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  button{
+    width: 1.5rem;
+    height: 2.5rem;
+  }
+}
+.payment{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
