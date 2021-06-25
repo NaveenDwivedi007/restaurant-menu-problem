@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-export interface order{id:Number,
+export interface order{id:number,
   dishName :String,
-  price : Number,
-  quantity:Number}
+  price : number,
+  quantity:number}
 
 @Component({
   selector: 'app-menu-card',
@@ -13,7 +13,9 @@ export interface order{id:Number,
 })
 export class MenuCardComponent implements OnInit {
   billBtn:Boolean = true
+  callBtn:Boolean=false
   orders:order[]=[]
+  billArray:order[]=[]
 
   menuCard= [
     {
@@ -31,15 +33,16 @@ export class MenuCardComponent implements OnInit {
   ]
 
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {  }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
   
 
  
   addOrder(obj:order){
-  let orderObj:order = {...obj}
+    this.callBtn = true
+    let orderObj:order = {...obj}
     if (this.orders.findIndex(x=>x.id===obj.id) !== -1) {
      return this.orders[this.orders.findIndex(x=>x.id===obj.id)].quantity= orderObj.quantity
       
@@ -48,7 +51,7 @@ export class MenuCardComponent implements OnInit {
     }
   }
 
-   increment(n:Number){ 
+   increment(n:number){ 
     
     if (this.menuCard[this.menuCard.findIndex(x=>x.id === n)].quantity>9) {
       return this.snackBar.open("you have reach max order capacity","",{
@@ -59,7 +62,7 @@ export class MenuCardComponent implements OnInit {
     }
   }
   
-  decrement(n:Number){    
+  decrement(n:number){    
     if (this.menuCard[this.menuCard.findIndex(x=>x.id === n)].quantity<2) {
       return this.snackBar.open("Quantity can not 0","",{
         duration: 500
@@ -69,9 +72,34 @@ export class MenuCardComponent implements OnInit {
     }
   }
 
-  removeOrder(id:Number){
+  removeOrder(id:number){
     console.log(this.orders.findIndex(x=>x.id===id));
    return   this.orders.splice(this.orders.findIndex(x=>x.id===id),1)
   }
+show(){
+    this.orders.map((a,idx)=>{
+      this.billArray.map((x)=>{
+      if (a.id===x.id) {
+        x.quantity=x.quantity+a.quantity
+        this.orders.splice(idx,1)
+      }else{
+        return
+      }
+    })
+  })
+  this.orders.map(x=>{
+    let ord:order = {...x}
+      this.billArray.push(ord)
+  })
+  this.orders=[]
+  console.log(this.billArray);
+  
+  
+  return this.snackBar.open("Thank you for your order Enjoy your Food","",{
+    duration:1500
+  })
+  
+  
+}
 
 }

@@ -29,9 +29,9 @@
 
   <div class="order">
   <ng-template #billing>
-    <app-orders></app-orders>
+    <app-orders [billarray]="billArray"></app-orders>
   </ng-template>
-  <div *ngIf=" billBtn else billing"></div>
+  <div *ngIf=" billBtn else billing">
   <table >
     <tr>
       <th>Dish Name</th>
@@ -45,10 +45,12 @@
       <td><button mat-button (click)="removeOrder(order.id)"><mat-icon class="btn reduce">remove</mat-icon></button></td>
     </tr>
   </table>
-  <div class="btn" *ngIf="!billBtn">
-    <button mat-raised-button color="primary" >Book for eating</button>
-    <button mat-raised-button color="primary" >Book for eating</button>
+  <div class="btn" *ngIf="callBtn">
+    <button mat-raised-button color="primary" (click)="show()" >Book for eating</button>
+    <button mat-raised-button color="primary" (click)="billBtn = false" >For Billing</button>
     </div>
   </div>
+</div>
+
 </div>
 <app-footer></app-footer>

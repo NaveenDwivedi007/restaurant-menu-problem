@@ -53,32 +53,18 @@
   .order{
     flex:2;
     height: inherit;
-    background-color: #162;
     .btn{
       display:flex;
       align-items: center;
       justify-content: space-evenly;
     }
     table{
-      background-color: rgb(226, 132, 8);
       width: 100%;
-      
-      
       tr{
         width: 100%;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        background-color: #fff;
         td{
-          background-color: #154715;
           text-align: center;
         }
-        th{
-          background-color: #457842;
-        }
-       
-        
       }
       
     }

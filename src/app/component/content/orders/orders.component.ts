@@ -6,33 +6,29 @@ import { order } from '../menu-card/menu-card.component';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss']
 })
-export class OrdersComponent implements OnInit,OnChanges {
-  @Input() order!: order[];
+export class OrdersComponent implements OnInit ,OnChanges {
+  @Input() billarray!:order[]
 
-  bill: order[] = [];
+  tatolAmount:number=0
 
-  constructor() { }
+  constructor() {
+   }
   
-  ckeck(){
-    this.bill=[...this.order]
-    this.bill.map(x=>{
-      x.price=+x.price*+x.quantity
-    })
-    return console.log(this.bill)
-  }
-
-  removeOrder(id:Number){
-    console.log(this.order);
-    console.log(this.order.findIndex(x=>x.id===id));
-    this.order=this.order.splice(this.order.findIndex(x=>x.id===id),1)
-    
-   return console.log( this.order )
-  }
+  
 
   ngOnInit(): void {
   }
   ngOnChanges(){
-    console.log("hello");
+    console.log("Hello");
+    
+    this.billarray.map(x=>{
+        x.price = x.price * x.quantity
+      })
+      this.billarray.map(x=>{
+        return this.tatolAmount=this.tatolAmount+ x.price
+       })
+       console.log(this.billarray);
+       console.log(this.tatolAmount);
     
   }
  
