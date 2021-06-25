@@ -17,21 +17,69 @@ export class MenuCardComponent implements OnInit {
   orders:order[]=[]
   billArray:order[]=[]
 
+  // for id use uuid
   menuCard= [
     {
       id:1,
-      dishName :"Salad",
-      price : 40,
+      dishName :"Cheese Butter Masala",
+      price : 150,
       quantity:1
     },
     {
       id:2,
-      dishName :"dal fry masala",
-      price : 40,
+      dishName :"Paneer Angara",
+      price : 170,
+      quantity:1
+    },
+    {
+      id:3,
+      dishName :"Paneer Butter Masala",
+      price : 140,
+      quantity:1
+    },
+    {
+      id:4,
+      dishName :"Masala Kaju Curry",
+      price : 150,
+      quantity:1
+    },
+    {
+      id:5,
+      dishName :"Butter Chapati",
+      price : 20,
+      quantity:1
+    },
+    {
+      id:6,
+      dishName :"Tawa Paratha",
+      price : 20,
+      quantity:1
+    },
+    {
+      id:7,
+      dishName :"Dal Fry",
+      price : 110,
+      quantity:1
+    },
+    {
+      id:8,
+      dishName :"Veg Fried Rice",
+      price : 130,
+      quantity:1
+    },
+    {
+      id:9,
+      dishName :"Triple Scheawn Fried Rice",
+      price : 200,
+      quantity:1
+    },
+    {
+      id:10,
+      dishName :"Veg Biryani",
+      price : 170,
       quantity:1
     },
   ]
-
 
   constructor(private snackBar: MatSnackBar) {  }
 

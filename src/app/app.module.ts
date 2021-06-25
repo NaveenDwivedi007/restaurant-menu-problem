@@ -9,8 +9,11 @@ import { OrdersComponent } from './component/content/orders/orders.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+
+import { HomeComponent } from './component/content/home/home.component';
+import { PagenotfoundComponent } from './component/content/pagenotfound/pagenotfound.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -19,17 +22,17 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     MenuCardComponent,
-    OrdersComponent
+    OrdersComponent,
+    HomeComponent,
+    PagenotfoundComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule,
-    FormsModule,
-    
-    
+    FormsModule, 
+    AppRoutingModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
