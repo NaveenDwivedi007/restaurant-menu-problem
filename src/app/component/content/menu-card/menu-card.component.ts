@@ -14,6 +14,7 @@ export interface order{id:number,
 export class MenuCardComponent implements OnInit {
   billBtn:Boolean = true
   callBtn:Boolean=false
+  paymentBtn:boolean=true
   orders:order[]=[]
   billArray:order[]=[]
 
@@ -125,6 +126,7 @@ export class MenuCardComponent implements OnInit {
    return   this.orders.splice(this.orders.findIndex(x=>x.id===id),1)
   }
 show(){
+  this.paymentBtn=false
     this.orders.map((a,idx)=>{
       this.billArray.map((x)=>{
       if (a.id===x.id) {

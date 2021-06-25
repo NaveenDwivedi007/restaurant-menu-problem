@@ -17,7 +17,7 @@
           <button mat-button (click)="increment(menu.id)" ><mat-icon class="btn add">add</mat-icon></button>
         </span>
         <div class="add-to-order">
-        <button mat-raised-button color="primary" (click)="addOrder(menu)" >Add to order</button>
+        <button mat-raised-button color="primary" (click)="addOrder(menu)"   [disabled]="!billBtn">Add to order</button>
       </div>
       </tr>
     </table>
@@ -43,8 +43,8 @@
     </tr>
   </table>
   <div class="btn" *ngIf="callBtn">
-    <button mat-raised-button color="primary" (click)="show()" >Book for eating</button>
-    <button mat-raised-button color="primary" (click)="billBtn = false" >For Billing</button>
+    <button mat-raised-button color="primary" (click)="show()" >Book order to waiter</button>
+    <button mat-raised-button color="primary" (click)="billBtn = false"  [disabled]="paymentBtn">For Billing</button>
     </div>
   </div>
 </div>
