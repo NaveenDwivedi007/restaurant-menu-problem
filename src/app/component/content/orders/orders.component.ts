@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { order } from '../menu-card/menu-card.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-orders',
@@ -15,14 +15,17 @@ export class OrdersComponent implements OnInit ,OnChanges {
   tip:number=10
   amountAfterTip:number=0
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(private snackBar: MatSnackBar,private router : Router) {
    }
   
   makeAPayment(){
     this.snackBar.open("Thank you please Visit us again","",{
-      duration:3000
+      duration:2000
     })
-    return this.amountAfterTip=this.tatolAmount+this.tatolAmount*this.tip/100
+    this.amountAfterTip=this.tatolAmount+this.tatolAmount*this.tip/100
+    return setTimeout(()=>{
+      return this.router.navigateByUrl("/")
+    },3000)
   }
 
   ngOnInit(): void {
