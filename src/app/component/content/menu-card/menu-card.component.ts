@@ -122,7 +122,6 @@ export class MenuCardComponent implements OnInit {
   }
 
   removeOrder(id:number){
-    console.log(this.orders.findIndex(x=>x.id===id));
    return   this.orders.splice(this.orders.findIndex(x=>x.id===id),1)
   }
 show(){
